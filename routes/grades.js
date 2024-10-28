@@ -164,8 +164,8 @@ router.patch("/:id/remove", async (req, res) => {
         });
         if (!result) res.send("Not found").status(404);
         else res.send(result).status(200);
-    } catch (e) {
-        next(e)
+    } catch (err) {
+        next(err)
     }
 });
 // BONUS: Extra route to combine both the add and remove routes
@@ -186,7 +186,7 @@ router.patch("/:id", async (req, res) => {
         });
         if (!result) res.send("Not found").status(404);
         else res.send(result).status(200);
-    } catch (e) {
+    } catch (err) {
     }
 });
 // Delete a single grade entry
@@ -197,8 +197,8 @@ router.delete("/:id", async (req, res) => {
         let result = await collection.deleteOne(query);
         if (!result) res.send("Not found").status(404);
         else res.send(result).status(200);
-    } catch (e) {
-        next(e)
+    } catch (err) {
+        next(err)
     }
 });
 // Get a learner's grade data
@@ -215,8 +215,8 @@ router.get("/learner/:id", async (req, res) => {
         let result = await collection.find(query).toArray();
         if (!result) res.send("Not found").status(404);
         else res.send(result).status(200);
-    } catch (e) {
-        next(e)
+    } catch (err) {
+        next(err)
     }
 });
 // Delete a learner's grade data
@@ -227,8 +227,8 @@ router.delete("/learner/:id", async (req, res) => {
         let result = await collection.deleteOne(query);
         if (!result) res.send("Not found").status(404);
         else res.send(result).status(200);
-    } catch (e) {
-        next(e)
+    } catch (err) {
+        next(err)
     }
 });
 // Get a class's grade data
@@ -242,8 +242,8 @@ router.get("/class/:id", async (req, res) => {
         let result = await collection.find(query).toArray();
         if (!result) res.send("Not found").status(404);
         else res.send(result).status(200);
-    } catch (e) {
-        next(e)
+    } catch (err) {
+        next(err)
     }
 });
 // Update a class id
@@ -256,8 +256,8 @@ router.patch("/class/:id", async (req, res) => {
         });
         if (!result) res.send("Not found").status(404);
         else res.send(result).status(200);
-    } catch (e) {
-        next(e)
+    } catch (err) {
+        next(err)
     }
 });
 // Delete a class
@@ -268,8 +268,8 @@ router.delete("/class/:id", async (req, res) => {
         let result = await collection.deleteMany(query);
         if (!result) res.send("Not found").status(404);
         else res.send(result).status(200);
-    } catch (e) {
-        next(e)
+    } catch (err) {
+        next(err)
     }
 });
 export default router;
